@@ -1,0 +1,44 @@
+productsCreate:
+  handler: services/products/create.main
+  events:
+    - http:
+        path: products
+        method: post
+        cors: true
+        authorizer: aws_iam
+
+productsGet:
+  handler: services/products/get.main
+  events:
+    - http:
+        path: products/{id}
+        method: get
+        cors: true
+        authorizer: aws_iam
+
+productsList:
+  handler: services/products/list.main
+  events:
+    - http:
+        path: products
+        method: get
+        cors: true
+        authorizer: aws_iam
+
+productsUpdate:
+  handler: services/products/update.main
+  events:
+    - http:
+        path: products/{id}
+        method: put
+        cors: true
+        authorizer: aws_iam
+
+productsDelete:
+  handler: services/products/delete.main
+  events:
+    - http:
+        path: products/{id}
+        method: delete
+        cors: true
+        authorizer: aws_iam

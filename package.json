@@ -1,7 +1,7 @@
 {
-  "name": "notes-app-api",
+  "name": "skalbare-api",
   "version": "1.1.0",
-  "description": "A Node.js starter for the Serverless Framework with async/await and unit test support",
+  "description": "A performative social media platform",
   "main": "handler.js",
   "scripts": {
     "test": "jest"

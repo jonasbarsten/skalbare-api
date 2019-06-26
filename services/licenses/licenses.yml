@@ -1,0 +1,53 @@
+# licensesCreate:
+#   handler: services/licenses/create.main
+#   events:
+#     - http:
+#         path: licenses
+#         method: post
+#         cors: true
+#         authorizer: aws_iam
+
+licensesGet:
+  handler: services/licenses/get.main
+  events:
+    - http:
+        path: licenses/{id}
+        method: get
+        cors: true
+        authorizer: aws_iam
+
+licensesList:
+  handler: services/licenses/list.main
+  events:
+    - http:
+        path: licenses
+        method: get
+        cors: true
+        authorizer: aws_iam
+
+licensesRegister:
+  handler: services/licenses/register.main
+  events:
+    - http:
+        path: licenses/register
+        method: post
+        cors: true
+        authorizer: aws_iam
+
+# licensesUpdate:
+#   handler: services/licenses/update.main
+#   events:
+#     - http:
+#         path: licenses/{id}
+#         method: put
+#         cors: true
+#         authorizer: aws_iam
+
+# licensesDelete:
+#   handler: services/licenses/delete.main
+#   events:
+#     - http:
+#         path: licenses/{id}
+#         method: delete
+#         cors: true
+#         authorizer: aws_iam
