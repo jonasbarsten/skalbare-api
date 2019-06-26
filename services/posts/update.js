@@ -4,20 +4,20 @@ import { success, failure } from "../../libs/response-lib";
 export async function main(event, context) {
   const data = JSON.parse(event.body);
   const params = {
-    TableName: process.env.profilesTable,
+    TableName: process.env.postsTable,
     // 'Key' defines the partition key and sort key of the item to be updated
     // - 'userId': Identity Pool identity id of the authenticated user
     // - 'noteId': path parameter
     Key: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      profileId: event.pathParameters.id
+      postId: event.pathParameters.id
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression
-    UpdateExpression: "SET bio = :bio, profileImage = :profileImage",
+    UpdateExpression: "SET content = :content, attachment = :attachment",
     ExpressionAttributeValues: {
-      ":profileImage": data.profileImage || null,
-      ":bio": data.bio || null
+      ":attachment": data.attachment || null,
+      ":content": data.content || null
     },
     ReturnValues: "ALL_NEW"
   };

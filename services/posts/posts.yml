@@ -1,0 +1,56 @@
+postsCreate:
+  handler: services/posts/create.main
+  events:
+    - http:
+        path: posts
+        method: post
+        cors: true
+        authorizer: aws_iam
+
+postsGet:
+  # Defines an HTTP API endpoint that calls the main function in get.js
+  # - path: url path is /notes/{id}
+  # - method: GET request
+  handler: services/posts/get.main
+  events:
+    - http:
+        path: posts/{id}
+        method: get
+        cors: true
+        authorizer: aws_iam
+
+postsList:
+  # Defines an HTTP API endpoint that calls the main function in list.js
+  # - path: url path is /notes
+  # - method: GET request
+  handler: services/posts/list.main
+  events:
+    - http:
+        path: posts
+        method: get
+        cors: true
+        authorizer: aws_iam
+
+postsUpdate:
+  # Defines an HTTP API endpoint that calls the main function in update.js
+  # - path: url path is /notes/{id}
+  # - method: PUT request
+  handler: services/posts/update.main
+  events:
+    - http:
+        path: posts/{id}
+        method: put
+        cors: true
+        authorizer: aws_iam
+
+postsDelete:
+  # Defines an HTTP API endpoint that calls the main function in delete.js
+  # - path: url path is /notes/{id}
+  # - method: DELETE request
+  handler: services/posts/delete.main
+  events:
+    - http:
+        path: posts/{id}
+        method: delete
+        cors: true
+        authorizer: aws_iam
