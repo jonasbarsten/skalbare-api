@@ -17,15 +17,23 @@ export async function main(event, context) {
     }
   };
 
+  console.log(params);
+
   try {
     const result = await dynamoDbLib.call("get", params);
     if (result.Item) {
+
+      console.log(result.Item);
       // Return the retrieved item
       return success(result.Item);
     } else {
+
+      console.log('failfail');
       return failure({ status: false, error: "Item not found." });
     }
   } catch (e) {
+
+    console.log('errorerror');
     return failure({ status: false });
   }
 }
