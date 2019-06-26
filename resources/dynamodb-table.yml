@@ -17,24 +17,24 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: ${self:custom.tableThroughput}
         WriteCapacityUnits: ${self:custom.tableThroughput}
-  # LicensesTable:
-  #   Type: AWS::DynamoDB::Table
-  #   Properties:
-  #     TableName: ${self:custom.licensesTable}
-  #     AttributeDefinitions:
-  #       - AttributeName: userId
-  #         AttributeType: S
-  #       - AttributeName: licenseId
-  #         AttributeType: S
-  #     KeySchema:
-  #       - AttributeName: userId
-  #         KeyType: HASH
-  #       - AttributeName: licenseId
-  #         KeyType: RANGE
-  #     # Set the capacity based on the stage
-  #     ProvisionedThroughput:
-  #       ReadCapacityUnits: ${self:custom.tableThroughput}
-  #       WriteCapacityUnits: ${self:custom.tableThroughput}
+  ProfilesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.profilesTable}
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        - AttributeName: profileId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        - AttributeName: profileId
+          KeyType: RANGE
+      # Set the capacity based on the stage
+      ProvisionedThroughput:
+        ReadCapacityUnits: ${self:custom.tableThroughput}
+        WriteCapacityUnits: ${self:custom.tableThroughput}
   # ProductsTable:
   #   Type: AWS::DynamoDB::Table
   #   Properties:
