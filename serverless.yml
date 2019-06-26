@@ -11,7 +11,7 @@ custom:
   stage: ${opt:stage, self:provider.stage}
   # Set the table name here so we can use it while testing locally
   notesTable: skalbare-${self:custom.stage}-notes
-  # licensesTable: skalbare-${self:custom.stage}-licenses
+  profilesTable: skalbare-${self:custom.stage}-profiles
   # productsTable: skalbare-${self:custom.stage}-products
   # Set our DynamoDB throughput for prod and all other non-prod stages.
   tableThroughputs:
@@ -37,7 +37,7 @@ provider:
   environment:
     # Tables
     notesTable: ${self:custom.notesTable}
-    # licensesTable: ${self:custom.licensesTable}
+    profilesTable: ${self:custom.profilesTable}
     # productsTable: ${self:custom.productsTable}
     # Stripe
     # stripeSecretKey: ${self:custom.environment.stripeSecretKey}
@@ -59,7 +59,7 @@ provider:
       # the specific table for the stage
       Resource:
         - "Fn::GetAtt": [ NotesTable, Arn ]
-        # - "Fn::GetAtt": [ LicensesTable, Arn ]
+        - "Fn::GetAtt": [ ProfilesTable, Arn ]
         # - "Fn::GetAtt": [ ProductsTable, Arn ]
 
 functions:

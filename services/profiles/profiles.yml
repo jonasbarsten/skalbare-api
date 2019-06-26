@@ -1,0 +1,56 @@
+profilesCreate:
+  handler: services/profiles/create.main
+  events:
+    - http:
+        path: profiles
+        method: post
+        cors: true
+        authorizer: aws_iam
+
+profilesGet:
+  # Defines an HTTP API endpoint that calls the main function in get.js
+  # - path: url path is /notes/{id}
+  # - method: GET request
+  handler: services/profiles/get.main
+  events:
+    - http:
+        path: profiles/{id}
+        method: get
+        cors: true
+        authorizer: aws_iam
+
+profilesList:
+  # Defines an HTTP API endpoint that calls the main function in list.js
+  # - path: url path is /notes
+  # - method: GET request
+  handler: services/profiles/list.main
+  events:
+    - http:
+        path: profiles
+        method: get
+        cors: true
+        authorizer: aws_iam
+
+profilesUpdate:
+  # Defines an HTTP API endpoint that calls the main function in update.js
+  # - path: url path is /notes/{id}
+  # - method: PUT request
+  handler: services/profiles/update.main
+  events:
+    - http:
+        path: profiles/{id}
+        method: put
+        cors: true
+        authorizer: aws_iam
+
+profilesDelete:
+  # Defines an HTTP API endpoint that calls the main function in delete.js
+  # - path: url path is /notes/{id}
+  # - method: DELETE request
+  handler: services/profiles/delete.main
+  events:
+    - http:
+        path: profiles/{id}
+        method: delete
+        cors: true
+        authorizer: aws_iam
