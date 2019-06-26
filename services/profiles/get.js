@@ -2,6 +2,9 @@ import * as dynamoDbLib from "../../libs/dynamodb-lib";
 import { success, failure } from "../../libs/response-lib";
 
 export async function main(event, context) {
+
+  console.log(event);
+
   const params = {
     TableName: process.env.profilesTable,
     // 'Key' defines the partition key and sort key of the item to be retrieved
@@ -9,7 +12,7 @@ export async function main(event, context) {
     // - 'noteId': path parameter
     Key: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      // profileId: event.pathParameters.id
+      profileId: event.pathParameters.id
       // userId: event.pathParameters.id
     }
   };
