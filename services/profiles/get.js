@@ -30,7 +30,7 @@ export async function main(event, context) {
     } else {
 
       console.log('failfail');
-      return failure({ status: false, error: "Item not found." });
+      return success({ status: false, error: "Item not found." });
     }
   } catch (e) {
 
