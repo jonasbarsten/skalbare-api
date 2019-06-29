@@ -81,7 +81,7 @@ Resources:
                     - ''
                     -
                       - Fn::GetAtt: [AttachmentsBucket, Arn]
-                      - '/private/'
+                      - '/protected/'
                       - '$'
                       - '{cognito-identity.amazonaws.com:sub}/*'
   
