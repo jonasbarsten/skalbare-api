@@ -12,6 +12,7 @@ export async function main(event, context) {
       profileId: data.profileId,
       bio: data.bio,
       profileImage: data.profileImage,
+      profileCover: data.profileCover,
       createdAt: Date.now()
     }
   };

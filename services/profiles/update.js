@@ -14,9 +14,10 @@ export async function main(event, context) {
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression
-    UpdateExpression: "SET bio = :bio, profileImage = :profileImage",
+    UpdateExpression: "SET bio = :bio, profileImage = :profileImage, profileCover = :profileCover",
     ExpressionAttributeValues: {
       ":profileImage": data.profileImage || null,
+      ":profileCover": data.profileCover || null,
       ":bio": data.bio || null
     },
     ReturnValues: "ALL_NEW"
