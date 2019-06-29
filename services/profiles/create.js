@@ -9,6 +9,7 @@ export async function main(event, context) {
     TableName: process.env.profilesTable,
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
+      displayName: data.displayName,
       profileId: data.profileId,
       bio: data.bio,
       profileImage: data.profileImage,
