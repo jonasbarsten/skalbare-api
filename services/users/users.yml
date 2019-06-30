@@ -1,4 +1,4 @@
-users:
+usersList:
   handler: services/users/list.main
   events:
     - http:

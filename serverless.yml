@@ -66,6 +66,11 @@ provider:
         - "Fn::GetAtt": [ ProfilesTable, Arn ]
         - "Fn::GetAtt": [ PostsTable, Arn ]
         # - "Fn::GetAtt": [ ProductsTable, Arn ]
+    # - Effect: Allow
+    #   Action:
+    #     - cognito-idp:ListUsers
+    #   Resource: 
+    #     - "Fn::GetAtt": [ CognitoUserPool, Arn ]
 
 functions:
   - ${file(services/notes/notes.yml)}
