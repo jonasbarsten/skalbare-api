@@ -136,13 +136,13 @@ Resources:
                     - Fn::Join:
                     - ''
                     -
-                      - '/private/'
+                      - 'private/'
                       - '$'
                       - '{cognito-identity.amazonaws.com:sub}/'
                     - Fn::Join:
                     - ''
                     -
-                      - '/private/'
+                      - 'private/'
                       - '$'
                       - '{cognito-identity.amazonaws.com:sub}/*'
 
