@@ -121,28 +121,28 @@ Resources:
                       - '/protected/*'
 
               # S3 allow listing
-              - Effect: 'Allow'
-                Action:
-                  - 's3:ListBucket'
-                Resource:
-                  - Fn::GetAtt: [AttachmentsBucket, Arn]
-                Condition:
-                  StringLike: 
-                    s3:prefix:
-                    - 'public/'
-                    - 'public/*'
-                    - 'protected/'
-                    - 'protected/*'
-                    - Fn::Join:
-                    - ''
-                      - 'private/'
-                      - '$'
-                      - '{cognito-identity.amazonaws.com:sub}/'
-                    - Fn::Join:
-                    - ''
-                      - 'private/'
-                      - '$'
-                      - '{cognito-identity.amazonaws.com:sub}/*'
+              # - Effect: 'Allow'
+              #   Action:
+              #     - 's3:ListBucket'
+              #   Resource:
+              #     - Fn::GetAtt: [AttachmentsBucket, Arn]
+              #   Condition:
+              #     StringLike: 
+              #       s3:prefix:
+              #       - 'public/'
+              #       - 'public/*'
+              #       - 'protected/'
+              #       - 'protected/*'
+              #       - Fn::Join:
+              #       - ''
+              #         - 'private/'
+              #         - '$'
+              #         - '{cognito-identity.amazonaws.com:sub}/'
+              #       - Fn::Join:
+              #       - ''
+              #         - 'private/'
+              #         - '$'
+              #         - '{cognito-identity.amazonaws.com:sub}/*'
 
 
   
