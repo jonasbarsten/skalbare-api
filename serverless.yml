@@ -13,6 +13,7 @@ custom:
   notesTable: skalbare-${self:custom.stage}-notes
   profilesTable: skalbare-${self:custom.stage}-profiles
   postsTable: skalbare-${self:custom.stage}-posts
+  cognitoIdentiyPoolId: us-east-1_nwwbtYMOe
   # productsTable: skalbare-${self:custom.stage}-products
   # Set our DynamoDB throughput for prod and all other non-prod stages.
   tableThroughputs:
@@ -40,6 +41,7 @@ provider:
     notesTable: ${self:custom.notesTable}
     profilesTable: ${self:custom.profilesTable}
     postsTable: ${self:custom.postsTable}
+    cognitoIdentiyPoolId: ${self:custom.cognitoIdentiyPoolId}
     # productsTable: ${self:custom.productsTable}
     # Stripe
     # stripeSecretKey: ${self:custom.environment.stripeSecretKey}
@@ -69,6 +71,7 @@ functions:
   - ${file(services/notes/notes.yml)}
   - ${file(services/profiles/profiles.yml)}
   - ${file(services/posts/posts.yml)}
+  - ${file(services/users/users.yml)}
   # - ${file(services/licenses/licenses.yml)}
   # - ${file(services/products/products.yml)}
   # - ${file(services/billing/billing.yml)}

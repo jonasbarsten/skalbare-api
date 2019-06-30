@@ -1,0 +1,8 @@
+users:
+  handler: services/users/list.main
+  events:
+    - http:
+        path: users
+        method: get
+        cors: true
+        authorizer: aws_iam
