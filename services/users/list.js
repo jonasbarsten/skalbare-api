@@ -2,9 +2,12 @@ import AWS from "aws-sdk";
 import { success, failure } from "../../libs/response-lib";
 
 export async function main (event, context) {
-  var params = {
-    UserPoolId: process.env.cognitoIdentiyPoolId
+  const params = {
+    UserPoolId: process.env.cognitoIdentiyPoolId,
+    AttributesToGet: []
   };
+
+  console.log(params);
 
   const cognitoidentityserviceprovider = new AWS.CognitoIdentityServiceProvider();
 
