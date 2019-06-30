@@ -133,21 +133,9 @@ Resources:
                     - 'public/*'
                     - 'protected/'
                     - 'protected/*'
-                    - Fn::Join:
-                    - ''
-                    -
-                      - 'private/'
-                      - '$'
-                      - '{cognito-identity.amazonaws.com:sub}/'
-                    - Fn::Join:
-                    - ''
-                    -
-                      - 'private/'
-                      - '$'
-                      - '{cognito-identity.amazonaws.com:sub}/*'
+                    - 'private/${cognito-identity.amazonaws.com:sub}/'
+                    - 'private/${cognito-identity.amazonaws.com:sub}/*'
 
-
-  
 # Print out the Id of the Identity Pool that is created
 Outputs:
   IdentityPoolId:
