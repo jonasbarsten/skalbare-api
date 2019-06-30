@@ -71,12 +71,18 @@ Resources:
                       - Ref: ApiGatewayRestApi
                       - '/*'
               
-              # Allow users to upload attachments to their
-              # folder inside our S3 bucket
+              # S3 give full access to public folder and users private and protected folder
               - Effect: 'Allow'
                 Action:
-                  - 's3:*'
+                  - 's3:GetObject'
+                  - 's3:PutObject'
+                  - 's3:DeleteObject'
                 Resource:
+                  - Fn::Join:
+                    - ''
+                    -
+                      - Fn::GetAtt: [AttachmentsBucket, Arn]
+                      - '/public/*'
                   - Fn::Join:
                     - ''
                     -
@@ -84,6 +90,63 @@ Resources:
                       - '/protected/'
                       - '$'
                       - '{cognito-identity.amazonaws.com:sub}/*'
+                  - Fn::Join:
+                    - ''
+                    -
+                      - Fn::GetAtt: [AttachmentsBucket, Arn]
+                      - '/private/'
+                      - '$'
+                      - '{cognito-identity.amazonaws.com:sub}/*'
+
+              # S3 allow upload to uploads folder
+              - Effect: 'Allow'
+                Action:
+                  - 's3:PutObject'
+                Resource:
+                  - Fn::Join:
+                    - ''
+                    -
+                      - Fn::GetAtt: [AttachmentsBucket, Arn]
+                      - '/uploads/*'
+
+              # S3 allow reading from protected folder
+              - Effect: 'Allow'
+                Action:
+                  - 's3:GetObject'
+                Resource:
+                  - Fn::Join:
+                    - ''
+                    -
+                      - Fn::GetAtt: [AttachmentsBucket, Arn]
+                      - '/protected/*'
+
+              # S3 allow listing
+              - Effect: 'Allow'
+                Action:
+                  - 's3:ListBucket'
+                Resource:
+                  - Fn::GetAtt: [AttachmentsBucket, Arn]
+                Condition:
+                  StringLike: 
+                    s3:prefix:
+                    - 'public/'
+                    - 'public/*'
+                    - 'protected/'
+                    - 'protected/*'
+                    - Fn::Join:
+                    - ''
+                    -
+                      - '/private/'
+                      - '$'
+                      - '{cognito-identity.amazonaws.com:sub}/'
+                    - Fn::Join:
+                    - ''
+                    -
+                      - '/private/'
+                      - '$'
+                      - '{cognito-identity.amazonaws.com:sub}/*'
+
+
   
 # Print out the Id of the Identity Pool that is created
 Outputs:
