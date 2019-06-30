@@ -1,7 +1,7 @@
 import AWS from "aws-sdk";
 import { success, failure } from "../../libs/response-lib";
 
-export default async function main () {
+export async function main (event, context) {
   var params = {
     UserPoolId: process.env.cognitoIdentiyPoolId
   };
