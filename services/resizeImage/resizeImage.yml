@@ -4,6 +4,8 @@ resizeImage:
     - http:
         path: /resizeImage/{level}/{user}/{size}/{image}
         method: get
+        cors: true
+        authorizer: aws_iam
   environment:
     BUCKET: 
       Ref: AttachmentsBucket
