@@ -5,7 +5,6 @@ imagesGet:
         path: /img/{level}/{user}/{size}/{image}
         method: get
         cors: true
-        authorizer: aws_iam
   iamRoleStatements:
     - Effect: "Allow"
       Action:
