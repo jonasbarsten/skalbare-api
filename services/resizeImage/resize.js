@@ -4,6 +4,8 @@ const sharp = require("sharp");
 
 export async function main (event) {
 
+  console.log('gogo')!
+
   const { level, user, size, image } = event.pathParameters;
 
   try {
@@ -25,6 +27,8 @@ export async function main (event) {
     return success(newKey);
 
   } catch (e) {
+    console.log('Fail :/');
+    console.log(e);
     return failure({ status: false });
   }
 };
