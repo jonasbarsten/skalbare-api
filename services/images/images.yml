@@ -6,14 +6,3 @@ imagesGet:
         method: get
         cors: true
         authorizer: aws_iam
-  # iamRoleStatements:
-  #   - Effect: "Allow"
-  #     Action:
-  #       - "s3:GetObject"
-  #       - "s3:PutObject"
-  #     Resource:
-  #       - Fn::Join:
-  #         - ''
-  #         -
-  #           - Fn::GetAtt: [AttachmentsBucket, Arn]
-  #           - '/*'
