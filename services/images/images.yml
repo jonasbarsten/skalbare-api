@@ -5,14 +5,15 @@ imagesGet:
         path: /img/{level}/{user}/{size}/{image}
         method: get
         cors: true
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action:
-        - "s3:GetObject"
-        - "s3:PutObject"
-      Resource:
-        - Fn::Join:
-          - ''
-          -
-            - Fn::GetAtt: [AttachmentsBucket, Arn]
-            - '/*'
+        authorizer: aws_iam
+  # iamRoleStatements:
+  #   - Effect: "Allow"
+  #     Action:
+  #       - "s3:GetObject"
+  #       - "s3:PutObject"
+  #     Resource:
+  #       - Fn::Join:
+  #         - ''
+  #         -
+  #           - Fn::GetAtt: [AttachmentsBucket, Arn]
+  #           - '/*'
