@@ -67,13 +67,17 @@ provider:
         - "Fn::GetAtt": [ ProfilesTable, Arn ]
         - "Fn::GetAtt": [ PostsTable, Arn ]
         # - "Fn::GetAtt": [ ProductsTable, Arn ]
-        
+
     - Effect: Allow
       Action:
         - "s3:GetObject"
         - "s3:PutObject"
       Resource:
-        Fn::Join: ['', [Fn::GetAtt: [ AttachmentsBucket, Arn ], '/*']
+        - Fn::Join:
+          - ''
+          -
+            - Fn::GetAtt: [AttachmentsBucket, Arn]
+            - '/*'
     # - Effect: Allow
     #   Action:
     #     - cognito-idp:ListUsers
