@@ -43,12 +43,6 @@ provider:
     profilesTable: ${self:custom.profilesTable}
     postsTable: ${self:custom.postsTable}
     cognitoIdentiyPoolId: ${self:custom.cognitoIdentiyPoolId}
-    # productsTable: ${self:custom.productsTable}
-    # Stripe
-    # stripeSecretKey: ${self:custom.environment.stripeSecretKey}
-    #De/encryption
-    # privateKey: ${self:custom.environment.privateKey}
-    # privateSecret: ${self:custom.environment.privateSecret}
 
   iamRoleStatements:
     - Effect: Allow
@@ -66,7 +60,6 @@ provider:
         - "Fn::GetAtt": [ NotesTable, Arn ]
         - "Fn::GetAtt": [ ProfilesTable, Arn ]
         - "Fn::GetAtt": [ PostsTable, Arn ]
-        # - "Fn::GetAtt": [ ProductsTable, Arn ]
 
     - Effect: Allow
       Action:
@@ -78,11 +71,6 @@ provider:
           -
             - Fn::GetAtt: [AttachmentsBucket, Arn]
             - '/*'
-    # - Effect: Allow
-    #   Action:
-    #     - cognito-idp:ListUsers
-    #   Resource: 
-    #     - "Fn::GetAtt": [ CognitoUserPool, Arn ]
 
 functions:
   - ${file(services/notes/notes.yml)}
@@ -90,9 +78,6 @@ functions:
   - ${file(services/posts/posts.yml)}
   - ${file(services/users/users.yml)}
   - ${file(services/images/images.yml)}
-  # - ${file(services/licenses/licenses.yml)}
-  # - ${file(services/products/products.yml)}
-  # - ${file(services/billing/billing.yml)}
 
 # Create our resources with separate CloudFormation templates
 resources:

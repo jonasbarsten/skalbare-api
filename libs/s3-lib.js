@@ -30,12 +30,8 @@ export function s3Checker (bucket, key) {
   return new Promise(resolve => {
     S3.getObject({Bucket: bucket, Key: key}, (err, res) => {
       if (err) {
-        console.log('Checker error');
-        console.log(err);
         resolve(false);
       } else {
-        console.log('Checker success');
-        console.log(res);
         resolve(true);
       }
     });

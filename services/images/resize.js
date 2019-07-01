@@ -3,8 +3,6 @@ import sharp from "sharp";
 
 export default async function main (bucket, width, height, key, newKey) {
 
-  console.log('enter RESIZE');
-
   try {
 
     const streamResize = sharp().resize(width, height).toFormat('png');
@@ -17,6 +15,6 @@ export default async function main (bucket, width, height, key, newKey) {
     return {status: true, data: newKey};
 
   } catch (e) {
-    return { status: false, data: e };
+    return {status: false, data: e};
   }
 };
