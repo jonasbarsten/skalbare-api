@@ -1,0 +1,21 @@
+resizeImage:
+  handler: services/resizeImage/resize.main
+  events:
+    - http:
+        path: /resizeImage/{level}/{user}/{size}/{image}
+        method: get
+  environment:
+    BUCKET: 
+      Ref: AttachmentsBucket
+    REGION: ${self:custom.region}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:GetObject"
+        - "s3:PutObject"
+      Resource:
+        - Fn::Join:
+          - ''
+          -
+            - Fn::GetAtt: [AttachmentsBucket, Arn]
+            - '/*'
