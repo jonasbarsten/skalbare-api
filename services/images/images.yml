@@ -1,8 +1,8 @@
-resizeImage:
-  handler: services/resizeImage/resize.main
+imagesGet:
+  handler: services/images/get.main
   events:
     - http:
-        path: /resizeImage/{level}/{user}/{size}/{image}
+        path: /img/{level}/{user}/{size}/{image}
         method: get
         cors: true
         authorizer: aws_iam

@@ -25,3 +25,15 @@ class S3Handler {
 }
 
 export const s3Handler = new S3Handler();
+
+export function s3Checker (bucket, key) {
+  return new Promise(resolve => {
+    S3.getObject({Bucket: bucket, Key: key}, (err, res) => {
+      if (err) {
+        resolve(false);
+      } else {
+        resolve(true);
+      }
+    });
+  })
+}

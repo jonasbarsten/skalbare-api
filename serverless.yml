@@ -78,7 +78,7 @@ functions:
   - ${file(services/profiles/profiles.yml)}
   - ${file(services/posts/posts.yml)}
   - ${file(services/users/users.yml)}
-  - ${file(services/resizeImage/resizeImage.yml)}
+  - ${file(services/images/images.yml)}
   # - ${file(services/licenses/licenses.yml)}
   # - ${file(services/products/products.yml)}
   # - ${file(services/billing/billing.yml)}
