@@ -1,10 +1,10 @@
 import { success, failure } from "../../libs/response-lib";
 import { s3Handler } from "../../libs/s3-lib";
-const sharp = require("sharp");
+import sharp from "sharp";
 
 export async function main (event) {
 
-  console.log('gogo')!
+  console.log('gogo');
 
   const { level, user, size, image } = event.pathParameters;
 
