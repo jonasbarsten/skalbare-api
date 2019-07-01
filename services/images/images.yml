@@ -6,10 +6,6 @@ imagesGet:
         method: get
         cors: true
         authorizer: aws_iam
-  environment:
-    BUCKET: 
-      Ref: AttachmentsBucket
-    REGION: ${self:custom.region}
   iamRoleStatements:
     - Effect: "Allow"
       Action:
