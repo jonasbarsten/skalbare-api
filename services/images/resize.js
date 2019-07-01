@@ -3,7 +3,7 @@ import sharp from "sharp";
 
 export default async function main (bucket, width, height, key, newKey) {
 
-  console.log('gogo resize');
+  console.log('enter RESIZE');
 
   try {
 
