@@ -5,7 +5,8 @@ const cognito = new AWS.CognitoIdentityServiceProvider();
 export default async function main (event, context) {
 
   const params = {
-    UserPoolId: 'us-east-1_nwwbtYMOe'
+    // UserPoolId: 'us-east-1_nwwbtYMOe'
+    UserPoolId: 'us-east-1_WaYiSCIq8'
   };
 
   try {
