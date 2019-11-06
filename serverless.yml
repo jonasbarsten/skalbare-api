@@ -14,6 +14,7 @@ custom:
   notesTable: skalbare-${self:custom.stage}-notes
   profilesTable: skalbare-${self:custom.stage}-profiles
   postsTable: skalbare-${self:custom.stage}-posts
+  cognitoIdentiyPoolId: us-east-1_WaYiSCIq8
   # cognitoIdentiyPoolId: us-east-1_nwwbtYMOe
   # productsTable: skalbare-${self:custom.stage}-products
   # Set our DynamoDB throughput for prod and all other non-prod stages.
@@ -42,7 +43,7 @@ provider:
     notesTable: ${self:custom.notesTable}
     profilesTable: ${self:custom.profilesTable}
     postsTable: ${self:custom.postsTable}
-    # cognitoIdentiyPoolId: ${self:custom.cognitoIdentiyPoolId}
+    cognitoIdentiyPoolId: ${self:custom.cognitoIdentiyPoolId}
 
   iamRoleStatements:
     - Effect: Allow
@@ -84,5 +85,5 @@ resources:
   - ${file(resources/api-gateway-errors.yml)}
   - ${file(resources/dynamodb-table.yml)}
   - ${file(resources/s3-bucket.yml)}
-  # - ${file(resources/cognito-user-pool.yml)}
-  # - ${file(resources/cognito-identity-pool.yml)}
+  - ${file(resources/cognito-user-pool.yml)}
+  - ${file(resources/cognito-identity-pool.yml)}

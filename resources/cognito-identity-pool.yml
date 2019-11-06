@@ -4,7 +4,8 @@ Resources:
     Type: AWS::Cognito::IdentityPool
     Properties:
       # Generate a name based on the stage
-      IdentityPoolName: skalbare${self:custom.stage}IdentityPool
+      IdentityPoolName: allamplifychatt__sbchat
+      # IdentityPoolName: skalbare${self:custom.stage}IdentityPool
       # Don't allow unathenticated users
       AllowUnauthenticatedIdentities: false
       # Link to our User Pool
